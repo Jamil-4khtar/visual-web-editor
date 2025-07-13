@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<LandingContainer />} />
         <Route path="/library" element={<LibraryContainer />} />
         <Route path="/editor" element={<EditorContainer />} />
+        <Route path="/editor/:id" element={<EditorContainer />} />
       </Routes>
     </div>
   );

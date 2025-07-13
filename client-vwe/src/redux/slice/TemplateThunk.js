@@ -22,6 +22,7 @@ export const fetchTemplateById = createAsyncThunk(
 export const updateTemplate = createAsyncThunk(
   "template/update",
   async ({ id, template }) => {
+    console.log({ id, template})
     const res = await axios.put(`${BASE_URL}/${id}`, template);
     return res.data;
   }

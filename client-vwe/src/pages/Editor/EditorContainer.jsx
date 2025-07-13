@@ -11,19 +11,21 @@ import { v4 as uuidv4 } from "uuid";
 
 function EditorContainer() {
   const { id } = useParams();
+  // console.log(id)
   const isEditMode = Boolean(id);
+
+  console.log(uuidv4())
 
   const dispatch = useDispatch();
   const editorRef = useRef(null);
 
   const [name, setName] = useState("");
 
-  const template = useSelector((state) =>
-    state.template.list.find((tpl) => tpl.id === id)
-  );
+  var template = useSelector((state) => state.template.list.find(tpl => tpl.id === id));
 
   useEffect(() => {
     if (isEditMode && !template) {
+      // console.log("is editmode and no template")
       dispatch(fetchTemplateById(id));
     }
   }, [id, dispatch, isEditMode, template]);
@@ -34,29 +36,34 @@ function EditorContainer() {
     }
   }, [template]);
 
+  // console.log(template);
+
   const handleSave = () => {
     if (!name.trim()) {
       alert("Template name is required");
       return;
     }
-    const content = editorRef.current?.getContent();
+    const content = editorRef.current?.getContent?.() || "";
 
     if (isEditMode) {
-      console.log(content)
-      dispatch(updateTemplate({ id, template: { name, content } })).then(() => alert("Template updated successfully"))
+      dispatch(updateTemplate({ id, template: { name, content } })).then(() =>
+        alert("Template updated successfully")
+      );
     } else {
       const newId = uuidv4();
-      dispatch(createTemplate({ id: newId, name, content})).then(() => alert("Template created"));
+      dispatch(createTemplate({ id: newId, name, content })).then(() =>
+        alert("Template created")
+      );
     }
   };
 
   return (
     <div>
-      <EditorView 
+      <EditorView
         editorRef={editorRef}
-        initialContent = {template?.content || ''}
-        templateName = {name}
-        setTemplateName = {setName}
+        initialContent={template?.content}
+        templateName={name}
+        setTemplateName={setName}
         onSave={handleSave}
         isEditMode={isEditMode}
       />
@@ -65,3 +72,4 @@ function EditorContainer() {
 }
 
 export default EditorContainer;
+

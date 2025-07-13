@@ -10,7 +10,7 @@ const getAllTemplates = async (req, res) => {
 }
 
 const getTemplate = async (req, res) => {
-  const template = await Template.find({ id: req.params.id });
+  const template = await Template.findOne({ id: req.params.id });
   if (!template) {
     throw new AppError("No template found", 404);
   }
@@ -19,12 +19,13 @@ const getTemplate = async (req, res) => {
 
 const editTemplate = async (req, res) => {
   const { id } = req.params;
-  const { name, content } = req.body.template;
+  const { name, content } = req.body;
   const template = await Template.findOne({ id });
   if (!template) {
     throw new AppError("No template found", 404)
   }
   template.content = content
+  template.name = name
   await template.save();
 
   res.json({ message: "Template edited successfully"})

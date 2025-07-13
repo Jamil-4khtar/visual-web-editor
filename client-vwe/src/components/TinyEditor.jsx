@@ -1,19 +1,25 @@
 import { Editor } from "@tinymce/tinymce-react";
+import { useEffect } from "react";
 
-function TinyEditor({editorRef, initialContent}) {
-  // const editorRef = useRef(null);
-  // const log = () => {
-  //   if (editorRef.current) {
-  //     console.log(editorRef.current.getContent());
-  //   }
-  // };
+function TinyEditor({ editorRef, initialContent, isEditMode }) {
+  useEffect(() => {
+    if (editorRef.current && initialContent) {
+      editorRef.current.setContent(initialContent);
+    }
+  }, [initialContent, editorRef]);
+
+  // console.log("Rendering TinyEditor with initialContent:", initialContent);
+
+  if (isEditMode && (initialContent === undefined || initialContent === null)) {
+    return <div>Loading editor...</div>; // or spinner
+  }
 
   return (
     <>
       <Editor
         apiKey="q8mnbqrbqu2rku7e9m74xeraen7mybc0v0r7w3l4vkk5omid"
         onInit={(_evt, editor) => (editorRef.current = editor)}
-        initialValue={initialContent || "<p>This is the initial content of the editor.</p>"}
+        initialValue={isEditMode ? initialContent : "<p>Write here...</p>"}
         // inline={true}
         init={{
           height: 500,
@@ -47,10 +53,9 @@ function TinyEditor({editorRef, initialContent}) {
             "alignright alignjustify | bullist numlist outdent indent | " +
             "removeformat | help",
           content_style:
-            "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
+            "body { font-family:Helvetica,Arial,sans-serif; font-size:16px, background-color: #4a5565; color: #000; }",
         }}
       />
-      {/* <button className="rounded mt-1 px-2 py-1 bg-white" onClick={log}>Log editor content</button> */}
     </>
   );
 }
