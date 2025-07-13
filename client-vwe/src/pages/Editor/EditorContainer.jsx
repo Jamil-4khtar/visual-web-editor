@@ -21,6 +21,8 @@ function EditorContainer() {
 
   const [name, setName] = useState("");
 
+  const loading = useSelector((state) => state.template.loading); 
+
   var template = useSelector((state) => state.template.list.find(tpl => tpl.id === id));
 
   useEffect(() => {
@@ -66,6 +68,7 @@ function EditorContainer() {
         setTemplateName={setName}
         onSave={handleSave}
         isEditMode={isEditMode}
+        loading={loading}
       />
     </div>
   );

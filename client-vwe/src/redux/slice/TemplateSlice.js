@@ -15,9 +15,9 @@ const templateSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchTemplates.pending, (state) => {
-        state.loading = true
-      })
+      // .addCase(fetchTemplates.pending, (state) => {
+      //   state.loading = true
+      // })
       .addCase(fetchTemplates.fulfilled, (state, action) => {
         state.list = action.payload
         state.loading = false
@@ -25,13 +25,21 @@ const templateSlice = createSlice({
       .addCase(fetchTemplateById.fulfilled, (state, action) => {
         // console.log(action.payload)
         state.list.push(action.payload)
+        state.loading = false
       })
       // .addCase(updateTemplate.fulfilled, (state, action) => {
-      //   state.loading = 
+        //   state.loading = 
       // })
       .addCase(createTemplate.fulfilled, (state, action) => {
         state.list.push(action.payload)
+        state.loading = false
       })
+      .addMatcher(
+        (action) => action.type.endsWith("/pending"),
+        (state) => {
+          state.loading = true
+        }
+      )
       .addMatcher(
         (action) => action.type.endsWith("/rejected"),
         (state, action) => {
@@ -39,9 +47,9 @@ const templateSlice = createSlice({
           state.loading = false
         }
       )
-  },
-})
-
+    },
+  })
+  
 export const { clearCurrentTemplate } = templateSlice.actions;
 const templateReducer = templateSlice.reducer
 export default templateReducer

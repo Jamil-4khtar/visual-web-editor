@@ -3,6 +3,7 @@ import TinyEditor from "../../components/TinyEditor";
 import Aurora from "../../components/Aurora";
 import { Editor } from "@tinymce/tinymce-react";
 import { Save, FileText } from "lucide-react";
+import PageLoader from "../../components/Loading";
 
 function EditorView({
   editorRef,
@@ -11,6 +12,7 @@ function EditorView({
   setTemplateName,
   onSave,
   isEditMode,
+  loading
 }) {
   // console.log(initialContent)
   const handleGoBack = () => {
@@ -24,6 +26,7 @@ function EditorView({
       </div>
 
       <div className="absolute z-10 h-screen w-screen overflow-y-scroll">
+        {loading && <PageLoader/>}
         <div className="min-h-screen w-full bg-transparent p-4 sm:p-6 lg:p-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center mb-6">
