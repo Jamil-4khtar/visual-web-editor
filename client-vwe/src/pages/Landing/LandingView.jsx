@@ -106,7 +106,7 @@ function LandingView() {
             </div>
             <div className="mt-16 mx-auto max-w-5xl">
               <img
-                src="editor-ss.png"
+                src="visual-ss.png"
                 alt="Visual Weaver Editor Screenshot"
                 className="rounded-xl shadow-2xl border-4 border-gray-400"
               />
@@ -320,14 +320,14 @@ function LandingView() {
               <div>
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                 <div className="flex justify-center md:justify-start space-x-4 text-2xl">
+                  <Link to={"https://www.linkedin.com/in/jamil-4khtar/"} className="text-gray-400 hover:text-white">
+                    <i className="fab fa-linkedin"></i>
+                  </Link>
+                  <Link to={"/https://github.com/Jamil-4khtar"} className="text-gray-400 hover:text-white">
+                    <i className="fab fa-github"></i>
+                  </Link>
                   <a href="#" className="text-gray-400 hover:text-white">
                     <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-github"></i>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-linkedin"></i>
                   </a>
                 </div>
               </div>
