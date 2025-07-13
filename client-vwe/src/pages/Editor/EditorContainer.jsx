@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import EditorView from "./EditorView";
 
 function EditorContainer() {
   return (
-    <div>EditorContainer</div>
-  )
+    <div>
+        <EditorView />
+    </div>
+  );
 }
 
-export default EditorContainer
+export default EditorContainer;
