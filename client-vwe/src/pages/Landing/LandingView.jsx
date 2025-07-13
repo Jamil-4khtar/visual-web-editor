@@ -61,17 +61,17 @@ function LandingView() {
               edit, and preview HTML templates with an intuitive WYSIWYG
               interface. Customize content, styles, and layouts in real-time.
             </p>
-            <div className="mt-10 flex justify-center items-center space-x-4">
+            <div className="mt-10 flex flex-col gap-5 md:flex-row lg:flex-row justify-center items-center">
               <a
                 href="#cta"
-                className="cta-gradient text-white font-bold py-3 px-8 rounded-full hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="cta-gradient text-white font-bold w-60 py-3 px-8 rounded-full hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Get Started for Free
               </a>
 
               <Link
                 to={"/library"}
-                className="bg-gray-200 text-gray-700 font-semibold py-3 px-8 rounded-full shadow-md hover:bg-gray-400 transition"
+                className="bg-gray-200 text-gray-700 font-semibold w-60 py-3 px-8 rounded-full shadow-md hover:bg-gray-400 transition"
               >
                 View Template Library
               </Link>
