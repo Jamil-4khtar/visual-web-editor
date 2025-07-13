@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import LandingBackground from "../../components/LandingBackground";
 import Navbar from "../../components/Navbar";
 import "../../styles/LandingStyles.css";
 import { Link } from "react-router-dom";
 
-
 function LandingView() {
+  // const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen">
       <LandingBackground />
@@ -44,9 +45,36 @@ function LandingView() {
                 Launch Editor
               </a>
             </div>
-            <button className="md:hidden text-gray-700">
+            {/* <button
+              className="md:hidden text-gray-700"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               <i className="fas fa-bars text-2xl"></i>
-            </button>
+            </button> */}
+
+            {/* Mobile Dropdown */}
+            {/* {isOpen && (
+              <div className="flex flex-col items-start space-y-4 mt-4 md:hidden">
+                <a
+                  href="#features"
+                  className="text-gray-600 hover:text-indigo-600 transition"
+                >
+                  Features
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="text-gray-600 hover:text-indigo-600 transition"
+                >
+                  How It Works
+                </a>
+                <a
+                  href="#cta"
+                  className="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition"
+                >
+                  Launch Editor
+                </a>
+              </div>
+            )} */}
           </nav>
         </header>
 
@@ -86,7 +114,10 @@ function LandingView() {
           </section>
         </main>
 
-        <section id="features" className="py-20 bg-slate-800/50 backdrop-blur-md mx-10 rounded-4xl">
+        <section
+          id="features"
+          className="py-20 bg-slate-800/50 backdrop-blur-md mx-10 rounded-4xl"
+        >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-400">
@@ -126,7 +157,9 @@ function LandingView() {
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
                   <i className="fas fa-pen-to-square"></i>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Direct Text Editing</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  Direct Text Editing
+                </h3>
                 <p className="text-gray-600">
                   Simply click and type to change any text content on your
                   template, from headings to button labels.
@@ -184,9 +217,13 @@ function LandingView() {
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="text-center">
                   <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-lg">
-                    <span className="text-3xl font-bold text-indigo-600">1</span>
+                    <span className="text-3xl font-bold text-indigo-600">
+                      1
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-400">Select a Template</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-400">
+                    Select a Template
+                  </h3>
                   <p className="text-gray-600">
                     Choose from a library of pre-built templates or start with
                     your own HTML.
@@ -194,9 +231,13 @@ function LandingView() {
                 </div>
                 <div className="text-center">
                   <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-lg">
-                    <span className="text-3xl font-bold text-indigo-600">2</span>
+                    <span className="text-3xl font-bold text-indigo-600">
+                      2
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-400">Edit Visually</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-400">
+                    Edit Visually
+                  </h3>
                   <p className="text-gray-600">
                     Use the intuitive editor to customize content, colors,
                     fonts, and layouts in real-time.
@@ -204,9 +245,13 @@ function LandingView() {
                 </div>
                 <div className="text-center">
                   <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-lg">
-                    <span className="text-3xl font-bold text-indigo-600">3</span>
+                    <span className="text-3xl font-bold text-indigo-600">
+                      3
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-400">Save & Publish</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-400">
+                    Save & Publish
+                  </h3>
                   <p className="text-gray-600">
                     Save your masterpiece and preview the final result. Your
                     template is ready to go live!
@@ -242,13 +287,18 @@ function LandingView() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
               <div>
                 <h3 className="text-xl font-bold mb-4">Visual Weaver</h3>
-                <p className="text-gray-400">The future of web template editing.</p>
+                <p className="text-gray-400">
+                  The future of web template editing.
+                </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-4">Links</h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#features" className="text-gray-400 hover:text-white">
+                    <a
+                      href="#features"
+                      className="text-gray-400 hover:text-white"
+                    >
                       Features
                     </a>
                   </li>
