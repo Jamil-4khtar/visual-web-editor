@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 function EditorContainer() {
+  const [htmlOutput, setHtmlOutput] = useState("")
   const { id } = useParams();
   // console.log(id)
   const isEditMode = Boolean(id);
@@ -69,6 +70,8 @@ function EditorContainer() {
         onSave={handleSave}
         isEditMode={isEditMode}
         loading={loading}
+        htmlOutput={htmlOutput}
+        setHtmlOutput={setHtmlOutput}
       />
     </div>
   );

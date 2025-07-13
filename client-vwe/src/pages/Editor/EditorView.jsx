@@ -4,6 +4,7 @@ import Aurora from "../../components/Aurora";
 import { Editor } from "@tinymce/tinymce-react";
 import { Save, FileText } from "lucide-react";
 import PageLoader from "../../components/Loading";
+import LiveView from "../../components/LiveView";
 
 function EditorView({
   editorRef,
@@ -12,7 +13,9 @@ function EditorView({
   setTemplateName,
   onSave,
   isEditMode,
-  loading
+  loading,
+  htmlOutput,
+  setHtmlOutput,
 }) {
   // console.log(initialContent)
   const handleGoBack = () => {
@@ -26,7 +29,7 @@ function EditorView({
       </div>
 
       <div className="absolute z-10 h-screen w-screen overflow-y-scroll">
-        {loading && <PageLoader/>}
+        {loading && <PageLoader />}
         <div className="min-h-screen w-full bg-transparent p-4 sm:p-6 lg:p-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center mb-6">
@@ -80,13 +83,20 @@ function EditorView({
               </button>
             </div>
 
-            {/* Main Content Area (Editor) */}
             <div className="bg-transparent rounded-lg shadow-sm">
-              <TinyEditor
-                editorRef={editorRef}
-                initialContent={initialContent}
-                isEditMode={isEditMode}
-              />
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <TinyEditor
+                    editorRef={editorRef}
+                    initialContent={initialContent}
+                    isEditMode={isEditMode}
+                    setHtmlOutput={setHtmlOutput}
+                  />
+                </div>
+                <div>
+                  <LiveView htmlOutput={htmlOutput} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
