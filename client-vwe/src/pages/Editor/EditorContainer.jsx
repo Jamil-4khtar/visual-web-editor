@@ -36,6 +36,7 @@ function EditorContainer() {
   useEffect(() => {
     if (template) {
       setName(template.name);
+      setHtmlOutput(template.content)
     }
   }, [template]);
 

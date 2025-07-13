@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchTemplates, fetchTemplateById, createTemplate } from './TemplateThunk'
+import { fetchTemplates, fetchTemplateById, updateTemplate, createTemplate } from './TemplateThunk'
 
 const templateSlice = createSlice({
   name: 'template',
@@ -27,9 +27,9 @@ const templateSlice = createSlice({
         state.list.push(action.payload)
         state.loading = false
       })
-      // .addCase(updateTemplate.fulfilled, (state, action) => {
-        //   state.loading = 
-      // })
+      .addCase(updateTemplate.fulfilled, (state) => {
+          state.loading = false
+      })
       .addCase(createTemplate.fulfilled, (state, action) => {
         state.list.push(action.payload)
         state.loading = false
