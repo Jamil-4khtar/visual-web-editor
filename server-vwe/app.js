@@ -13,7 +13,7 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors({
-  origin: process.env.NODE_ENV === "development"? "http://localhost:5173/" : "https://visual-web-editor.vercel.app/",
+  origin: process.env.NODE_ENV === "development"? "http://localhost:5173" : "https://visual-web-editor.vercel.app",
   credentials: true
 }))
 
