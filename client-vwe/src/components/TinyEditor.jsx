@@ -17,7 +17,7 @@ function TinyEditor({ editorRef, initialContent, isEditMode }) {
   return (
     <>
       <Editor
-        apiKey="q8mnbqrbqu2rku7e9m74xeraen7mybc0v0r7w3l4vkk5omid"
+        apiKey={import.meta.env.VITE_API_KEY}
         onInit={(_evt, editor) => (editorRef.current = editor)}
         initialValue={isEditMode ? initialContent : "<p>Write here...</p>"}
         // inline={true}

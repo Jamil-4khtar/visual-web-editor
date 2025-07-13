@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/api/template";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const fetchTemplates = createAsyncThunk(
   "template/fetchAll",

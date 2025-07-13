@@ -13,17 +13,18 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: process.env.NODE_ENV === "development"? "http://localhost:5173/" : "https://visual-web-editor.vercel.app/",
+  credentials: true
 }))
 
 
 app.use("/api/template", templateRouter)
 
 
-app.get("/*assemble", (req, res) => {
-  console.log("No page in this url: ", req.params.assemble);
-  res.json({ message: "No Page Found" });
-});
+// app.get("/*assemble", (req, res) => {
+//   console.log("No page in this url: ", req.params.assemble);
+//   res.json({ message: "No Page Found" });
+// });
 
 app.use(errHandler);
 
