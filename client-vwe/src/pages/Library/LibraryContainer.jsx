@@ -1,12 +1,11 @@
 import React from 'react'
-import LandingView from '../Landing/LandingView'
-// import "../../styles/LandingStyles.css"
+import LibraryView from './LibraryView'
 
 
 function LibraryContainer() {
   return (
     <div>
-      <LandingView/>
+      <LibraryView/>
     </div>
   )
 }

@@ -1,20 +1,19 @@
-import { useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-function TinyEditor() {
-  const editorRef = useRef(null);
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+function TinyEditor({editorRef, initialContent}) {
+  // const editorRef = useRef(null);
+  // const log = () => {
+  //   if (editorRef.current) {
+  //     console.log(editorRef.current.getContent());
+  //   }
+  // };
 
   return (
     <>
       <Editor
         apiKey="q8mnbqrbqu2rku7e9m74xeraen7mybc0v0r7w3l4vkk5omid"
         onInit={(_evt, editor) => (editorRef.current = editor)}
-        initialValue="<p>This is the initial content of the editor.</p>"
+        initialValue={initialContent || "<p>This is the initial content of the editor.</p>"}
         // inline={true}
         init={{
           height: 500,
@@ -51,7 +50,7 @@ function TinyEditor() {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
         }}
       />
-      <button onClick={log}>Log editor content</button>
+      {/* <button className="rounded mt-1 px-2 py-1 bg-white" onClick={log}>Log editor content</button> */}
     </>
   );
 }
