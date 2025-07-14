@@ -1,5 +1,6 @@
-import React from "react";
-import Aurora from "../../components/Aurora";
+import React, { Suspense } from "react";
+// import Aurora from "../../components/Aurora";
+const Aurora = React.lazy(() => import("../../components/Aurora"));
 import { ArrowLeft } from "lucide-react";
 import PageLoader from "../../components/Loading";
 
@@ -11,7 +12,9 @@ function LibraryView({ templates, loading, onEdit, onCreate }) {
   return (
     <div className="relative min-h-screen">
       <div className="h-full bg-gray-900 absolute w-screen">
-        <Aurora className="landing-bg_comp" />
+        <Suspense fallback={<div />}>
+          <Aurora className="landing-bg_comp" />
+        </Suspense>
       </div>
 
       <div className="absolute z-10 p-5 h-screen w-screen overflow-y-scroll">

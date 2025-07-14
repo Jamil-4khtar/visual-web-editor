@@ -1,28 +1,32 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import LandingBackground from "../../components/LandingBackground";
 import Navbar from "../../components/Navbar";
 import "../../styles/LandingStyles.css";
 import { Link } from "react-router-dom";
+import MagicWandSparkles from "../../assets/icons/MagicWandSparkles";
+import Eye from "../../assets/icons/Eye";
+import Palette from "../../assets/icons/Palette";
+import PenToSquare from "../../assets/icons/PenToSquare";
+import ArrowsUpDownLeftRight from "../../assets/icons/ArrowsUpDownLeftRight";
+import LayerGroup from "../../assets/icons/LayerGroup";
+import Save from "../../assets/icons/Save";
+import Linkedin from "../../assets/icons/Linkedin";
+import Github from "../../assets/icons/Github";
+import Twitter from "../../assets/icons/Twitter";
 
 function LandingView() {
   // const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen">
-      <LandingBackground />
-      <div className="absolute z-10 h-screen w-screen overflow-y-scroll">
-        {/* <div>
-          <h2 className="ml-10 mt-5 text-2xl font-bold font-stretch-75%">Visual Web Editor</h2>
-          <div className="fixed right-10 top-5">
-            <Navbar />
-            <div className="hero">
-            </div>
-          </div>
-        </div> */}
-        <header className="bg-white/800 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <div className="">
+      <div className="fixed inset-0 -z-10">
+        <LandingBackground />
+      </div>
+      <div className="z-10 h-[200px]">
+        <header className="bg-transparent backdrop-blur-lg sticky top-0 z-50 shadow-sm ">
           <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" className="text-2xl font-bold text-gray-400">
-              <i className="fas fa-magic-wand-sparkles text-indigo-600 px-1"></i>
+            <a href="#hero" className="text-2xl font-bold text-gray-400">
+              <MagicWandSparkles />
               Visual Weaver
             </a>
             <div className="hidden md:flex items-center space-x-6">
@@ -79,7 +83,10 @@ function LandingView() {
         </header>
 
         <main className="hero-gradient">
-          <section className="container mx-auto px-6 py-20 md:py-32 text-center">
+          <section
+            id="hero"
+            className="container mx-auto px-6 py-20 md:py-32 text-center"
+          >
             <h1 className="text-4xl md:text-6xl font-extrabold text-gray-400 leading-tight">
               Build Beautiful Web Pages, <br className="hidden md:inline" />{" "}
               Visually. No Code Required.
@@ -105,11 +112,15 @@ function LandingView() {
               </Link>
             </div>
             <div className="mt-16 mx-auto max-w-5xl">
-              <img
-                src="visual-ss.png"
-                alt="Visual Weaver Editor Screenshot"
-                className="rounded-xl shadow-2xl border-4 border-gray-400"
-              />
+              <picture>
+                <source srcset="visual-ss.webp" type="image/webp" />
+                <img
+                  src="visual-ss.png"
+                  alt="Visual Weaver Editor Screenshot"
+                  className="rounded-xl shadow-2xl border-4 border-gray-400"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </section>
         </main>
@@ -131,7 +142,7 @@ function LandingView() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <div className="text-center p-6 bg-gray-400 rounded-xl shadow-sm hover:shadow-lg transition">
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
-                  <i className="fas fa-eye"></i>
+                  <Eye />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
                   Visual WYSIWYG Editor
@@ -143,7 +154,7 @@ function LandingView() {
               </div>
               <div className="text-center p-6 bg-gray-400 rounded-xl shadow-sm hover:shadow-lg transition">
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
-                  <i className="fas fa-palette"></i>
+                  <Palette />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
                   Live Style Customization
@@ -155,7 +166,7 @@ function LandingView() {
               </div>
               <div className="text-center p-6 bg-gray-400 rounded-xl shadow-sm hover:shadow-lg transition">
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
-                  <i className="fas fa-pen-to-square"></i>
+                  <PenToSquare />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
                   Direct Text Editing
@@ -167,7 +178,7 @@ function LandingView() {
               </div>
               <div className="text-center p-6 bg-gray-400 rounded-xl shadow-sm hover:shadow-lg transition">
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
-                  <i className="fas fa-arrows-up-down-left-right"></i>
+                  <ArrowsUpDownLeftRight />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
                   Drag & Drop Reordering
@@ -179,7 +190,7 @@ function LandingView() {
               </div>
               <div className="text-center p-6 bg-gray-400 rounded-xl shadow-sm hover:shadow-lg transition">
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
-                  <i className="fas fa-layer-group"></i>
+                  <LayerGroup />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Template Library</h3>
                 <p className="text-gray-600">
@@ -189,7 +200,7 @@ function LandingView() {
               </div>
               <div className="text-center p-6 bg-gray-400 rounded-xl shadow-sm hover:shadow-lg transition">
                 <div className="feature-icon text-white w-16 h-16 rounded-full inline-flex items-center justify-center mb-5 text-2xl">
-                  <i className="fas fa-save"></i>
+                  <Save />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Save & Preview</h3>
                 <p className="text-gray-600">
@@ -261,82 +272,89 @@ function LandingView() {
             </div>
           </div>
         </section>
-
-        <section id="cta" className="cta-gradient">
-          <div className="container mx-auto px-6 py-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Ready to Weave Some Magic?
-            </h2>
-            <p className="mt-4 text-lg text-indigo-200 max-w-2xl mx-auto">
-              Stop wrestling with code and start creating visually. Launch the
-              editor and bring your ideas to life in minutes.
-            </p>
-            <div className="mt-8">
-              <Link
-                to="/editor"
-                className="bg-white text-indigo-600 font-bold py-4 px-10 rounded-full text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl"
-              >
-                Launch the Editor Now
-              </Link>
+        <div className="h-screen">
+          <section id="cta" className="cta-gradient md:h-[50%]">
+            <div className="container mx-auto px-6 py-20 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Ready to Weave Some Magic?
+              </h2>
+              <p className="mt-4 text-lg text-indigo-200 max-w-2xl mx-auto">
+                Stop wrestling with code and start creating visually. Launch the
+                editor and bring your ideas to life in minutes.
+              </p>
+              <div className="mt-8">
+                <Link
+                  to="/editor"
+                  className="bg-white text-indigo-600 font-bold py-4 px-10 rounded-full text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl"
+                >
+                  Launch the Editor Now
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <footer className="bg-gray-800 text-white">
-          <div className="container mx-auto px-6 py-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-              <div>
-                <h3 className="text-xl font-bold mb-4">Visual Weaver</h3>
-                <p className="text-gray-400">
-                  The future of web template editing.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4">Links</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a
-                      href="#features"
+          <footer className="bg-gray-800/90 md:h-[50%]  text-white">
+            <div className="container mx-auto px-6 py-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                  <h3 className="text-xl font-bold mb-4">Visual Weaver</h3>
+                  <p className="text-gray-400">
+                    The future of web template editing.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Links</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <a
+                        href="#features"
+                        className="text-gray-400 hover:text-white"
+                      >
+                        Features
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#how-it-works"
+                        className="text-gray-400 hover:text-white"
+                      >
+                        How It Works
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-400 hover:text-white">
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+                  <div className="flex justify-center md:justify-start space-x-4 text-2xl">
+                    <Link
+                      to={"https://www.linkedin.com/in/jamil-4khtar/"}
                       className="text-gray-400 hover:text-white"
                     >
-                      Features
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#how-it-works"
+                      <Linkedin />
+                    </Link>
+                    <Link
+                      to={"/https://github.com/Jamil-4khtar"}
                       className="text-gray-400 hover:text-white"
                     >
-                      How It Works
-                    </a>
-                  </li>
-                  <li>
+                      <Github />
+                    </Link>
                     <a href="#" className="text-gray-400 hover:text-white">
-                      Contact
+                      <Twitter />
                     </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-                <div className="flex justify-center md:justify-start space-x-4 text-2xl">
-                  <Link to={"https://www.linkedin.com/in/jamil-4khtar/"} className="text-gray-400 hover:text-white">
-                    <i className="fab fa-linkedin"></i>
-                  </Link>
-                  <Link to={"/https://github.com/Jamil-4khtar"} className="text-gray-400 hover:text-white">
-                    <i className="fab fa-github"></i>
-                  </Link>
-                  <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-twitter"></i>
-                  </a>
+                  </div>
                 </div>
               </div>
+              <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Visual Weaver. All Rights Reserved.</p>
+              </div>
             </div>
-            <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-              <p>&copy; 2025 Visual Weaver. All Rights Reserved.</p>
-            </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
   );

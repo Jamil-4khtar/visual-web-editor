@@ -1,13 +1,22 @@
 .landing-bg_comp {
-  position: absolute;
+  position: fixed;
   top: 0;
   height: inherit;
   width: inherit;
 }
 .cta-gradient {
   background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  opacity: 90%;
 }
 .feature-icon {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #8d8e92
 }
+
+/* .will-change-scroll {
+  will-change: scroll-position;
+}
+
+.will-change-transform-opacity {
+  will-change: transform, opacity;
+} */

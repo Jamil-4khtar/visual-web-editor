@@ -8,7 +8,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import beautify from "js-beautify";
 
 function EditorContainer() {
   const [htmlOutput, setHtmlOutput] = useState("");
@@ -39,11 +38,13 @@ function EditorContainer() {
   useEffect(() => {
     if (template) {
       setName(template.name);
-      const formattedHtml = beautify.html(template.content, {
-        indent_size: 2,
-        wrap_line_length: 80,
+      import("js-beautify").then((beautify) => {
+        const formattedHtml = beautify.html(template.content, {
+          indent_size: 2,
+          wrap_line_length: 80,
+        });
+        setHtmlOutput(formattedHtml);
       });
-      setHtmlOutput(formattedHtml);
     }
   }, [template]);
 

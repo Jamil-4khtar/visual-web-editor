@@ -1,19 +1,22 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import LandingContainer from "./pages/Landing/LandingContainer";
-import LibraryContainer from "./pages/Library/LibraryContainer";
-import EditorContainer from "./pages/Editor/EditorContainer";
+import Loading from "./components/Loading";
+const LandingContainer = lazy(() => import("./pages/Landing/LandingContainer"));
+const LibraryContainer = lazy(() => import("./pages/Library/LibraryContainer"));
+const EditorContainer = lazy(() => import("./pages/Editor/EditorContainer"));
 
 function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<LandingContainer />} />
-        <Route path="/library" element={<LibraryContainer />} />
-        <Route path="/editor" element={<EditorContainer />} />
-        <Route path="/editor/:id" element={<EditorContainer />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<LandingContainer />} />
+          <Route path="/library" element={<LibraryContainer />} />
+          <Route path="/editor" element={<EditorContainer />} />
+          <Route path="/editor/:id" element={<EditorContainer />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
