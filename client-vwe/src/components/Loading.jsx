@@ -2,7 +2,7 @@ import "../styles/LoadingAnimation.css";
 
 const PageLoader = () => {
   return (
-    <div className="fixed inset-0 bg-transparent flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
       <div className="flex space-x-2">
         {[...Array(3)].map((_, i) => (
           <span

@@ -57,6 +57,7 @@ function TinyEditor({ editorRef, initialContent, isEditMode, setHtmlOutput }) {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:16px, background-color: #4a5565; color: #000; }",
         }}
       />
+      
     </>
   );
 }

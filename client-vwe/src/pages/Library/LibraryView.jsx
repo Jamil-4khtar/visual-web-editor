@@ -10,16 +10,16 @@ function LibraryView({ templates, loading, onEdit, onCreate }) {
   };
 
   return (
-    <div className="relative min-h-screen">
-      <div className="h-full bg-gray-900 absolute w-screen">
-        <Suspense fallback={<div />}>
+    <div>
+      <div className="fixed inset-0 -z-10 bg-gray-900">
+        <Suspense fallback={<PageLoader />}>
           <Aurora className="landing-bg_comp" />
         </Suspense>
       </div>
 
-      <div className="absolute z-10 p-5 h-screen w-screen overflow-y-scroll">
+      <div className="z-10">
         {loading && <PageLoader />}
-        <div className="min-h-full bg-gray-400/10 backdrop-blur-3xl rounded-2xl">
+        <div className="min-h-screen bg-gray-400/10 backdrop-blur-3xl">
           <div className="container mx-auto px-4 py-8">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-4">

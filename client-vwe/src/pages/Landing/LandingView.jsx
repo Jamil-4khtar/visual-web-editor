@@ -25,20 +25,20 @@ function LandingView() {
       <div className="z-10 h-[200px]">
         <header className="bg-transparent backdrop-blur-lg sticky top-0 z-50 shadow-sm ">
           <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#hero" className="text-2xl font-bold text-gray-400">
+            <a href="#hero" className="text-2xl font-bold text-gray-300">
               <MagicWandSparkles />
               Visual Weaver
             </a>
             <div className="hidden md:flex items-center space-x-6">
               <a
                 href="#features"
-                className="text-gray-600 hover:text-indigo-600 transition"
+                className="text-slate-400 hover:text-indigo-600 transition"
               >
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-gray-600 hover:text-indigo-600 transition"
+                className="text-slate-400 hover:text-indigo-600 transition"
               >
                 How It Works
               </a>
@@ -87,11 +87,11 @@ function LandingView() {
             id="hero"
             className="container mx-auto px-6 py-20 md:py-32 text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-400 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-400 leading-tight">
               Build Beautiful Web Pages, <br className="hidden md:inline" />{" "}
               Visually. No Code Required.
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="mt-6 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
               Visual Weaver is a live template editor that lets you manage,
               edit, and preview HTML templates with an intuitive WYSIWYG
               interface. Customize content, styles, and layouts in real-time.
@@ -127,14 +127,14 @@ function LandingView() {
 
         <section
           id="features"
-          className="py-20 bg-slate-800/50 backdrop-blur-md mx-10 rounded-4xl"
+          className="py-20 bg-slate-800/50 backdrop-blur-md "
         >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-400">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-300">
                 Everything You Need to Create
               </h2>
-              <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
                 Powerful features that give you full control over your web
                 templates.
               </p>
@@ -212,61 +212,67 @@ function LandingView() {
           </div>
         </section>
 
-        <section id="how-it-works" className="py-20 bg-transparent">
-          <div className="container mx-auto px-6">
+        <section
+          id="how-it-works"
+          className="flex items-center bg-transparent min-h-screen"
+        >
+          <div className="container mx-auto py-10 px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-400">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-300">
                 Get Started in 3 Simple Steps
               </h2>
-              <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
                 Creating stunning pages has never been easier.
               </p>
             </div>
             <div className="relative ">
-              <div className="hidden md:block absolute top-1/4 left-0 w-full h-0.5 bg-gray-300 border-t-2 border-dashed border-gray-400 -translate-y-1/2"></div>
-
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="text-center">
-                  <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-lg">
+                  <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-gray-900 shadow-2xl">
                     <span className="text-3xl font-bold text-indigo-600">
                       1
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-400">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-300">
                     Select a Template
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     Choose from a library of pre-built templates or start with
                     your own HTML.
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-lg">
+                  <div className="bg-white w-24 h-24 rounded-full inline-flex  items-center justify-center mb-5 border-4 border-indigo-200 shadow-gray-900 shadow-2xl">
                     <span className="text-3xl font-bold text-indigo-600">
                       2
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-400">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-300">
                     Edit Visually
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     Use the intuitive editor to customize content, colors,
                     fonts, and layouts in real-time.
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white w-24 h-24 rounded-full inline-flex items-center justify-center mb-5 border-4 border-indigo-200 shadow-lg">
+                  <div className="bg-white w-24 h-24 rounded-full inline-flex items-center  justify-center mb-5 border-4 border-indigo-200 shadow-gray-900 shadow-2xl">
                     <span className="text-3xl font-bold text-indigo-600">
                       3
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-400">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-300">
                     Save & Publish
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     Save your masterpiece and preview the final result. Your
                     template is ready to go live!
                   </p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div className="hidden md:block absolute -z-10 top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-0.5 bg-gray-300 border-t-2 border-dashed border-gray-400"></div>
                 </div>
               </div>
             </div>
