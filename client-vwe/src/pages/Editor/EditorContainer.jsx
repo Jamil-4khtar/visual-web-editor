@@ -12,17 +12,15 @@ import { v4 as uuidv4 } from "uuid";
 function EditorContainer() {
   const [htmlOutput, setHtmlOutput] = useState("");
   const { id } = useParams();
-  // console.log(id)
   const isEditMode = Boolean(id);
 
-  console.log(uuidv4());
 
   const dispatch = useDispatch();
   const editorRef = useRef(null);
 
   const [name, setName] = useState("");
 
-  const loading = useSelector((state) => state.template.loading);
+  // const loading = useSelector((state) => state.template.loading);
 
   var template = useSelector((state) =>
     state.template.list.find((tpl) => tpl.id === id)
@@ -78,7 +76,6 @@ function EditorContainer() {
         setTemplateName={setName}
         onSave={handleSave}
         isEditMode={isEditMode}
-        loading={loading}
         htmlOutput={htmlOutput}
         setHtmlOutput={setHtmlOutput}
       />
