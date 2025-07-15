@@ -328,8 +328,8 @@ function LandingView() {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-gray-400 hover:text-white">
-                        Contact
+                      <a href="#hero" className="text-gray-400 hover:text-white">
+                        Go to library
                       </a>
                     </li>
                   </ul>
