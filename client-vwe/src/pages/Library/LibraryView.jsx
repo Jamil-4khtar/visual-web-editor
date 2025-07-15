@@ -1,12 +1,27 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 // import Aurora from "../../components/Aurora";
 const Aurora = React.lazy(() => import("../../components/Aurora"));
 import { ArrowLeft } from "lucide-react";
 import PageLoader from "../../components/Loading";
+import Modal from "../../components/Modal";
+import DOMPurify from 'dompurify'
 
 function LibraryView({ templates, loading, onEdit, onCreate }) {
   const handleGoBack = () => {
     window.history.back();
+  };
+
+  // Modal
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedContent, setSelectedContent] = useState("");
+
+  const openModal = (content) => {
+    setSelectedContent(content);
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedContent("");
   };
 
   return (
@@ -72,13 +87,7 @@ function LibraryView({ templates, loading, onEdit, onCreate }) {
                         Edit
                       </button>
                       <button
-                        onClick={() => {
-                          const win = window.open("", "_blank");
-                          if (win) {
-                            win.document.body.innerHTML = template.content;
-                            win.document.close();
-                          }
-                        }}
+                        onClick={() => openModal(template.content)}
                         className="px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
                       >
                         Preview
@@ -91,6 +100,15 @@ function LibraryView({ templates, loading, onEdit, onCreate }) {
           </div>
         </div>
       </div>
+      {
+        <Modal isOpen={isOpen} closeModal={closeModal}>
+          <iframe
+            srcDoc={DOMPurify.sanitize(selectedContent)} // Sanitize before putting in srcDoc
+            style={{ width: "100%", height: "100%", border: "none", }}
+            title="Template Preview"
+          />
+        </Modal>
+      }
     </div>
   );
 }
