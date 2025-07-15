@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LandingBackground from "../../components/LandingBackground";
 import Navbar from "../../components/Navbar";
 import "../../styles/LandingStyles.css";
@@ -113,7 +113,7 @@ function LandingView() {
             </div>
             <div className="mt-16 mx-auto max-w-5xl">
               <picture>
-                <source srcset="visual-ss.webp" type="image/webp" />
+                <source srcSet="visual-ss.webp" type="image/webp" />
                 <img
                   src="visual-ss.png"
                   alt="Visual Weaver Editor Screenshot"
