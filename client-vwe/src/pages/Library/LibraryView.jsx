@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import PageLoader from "../../components/Loading";
 import Modal from "../../components/Modal";
 import DOMPurify from 'dompurify'
+import TemplateCard from "../../components/TemplateCard";
 
 function LibraryView({ templates, loading, onEdit, onCreate }) {
   const handleGoBack = () => {
@@ -69,32 +70,14 @@ function LibraryView({ templates, loading, onEdit, onCreate }) {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {templates.map((template) => (
-                <div
+                <TemplateCard
                   key={template.id}
-                  className="bg-gray-400 border border-gray-600 rounded-lg shadow-sm overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out group"
-                >
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 truncate">
-                      {template.name}
-                    </h3>
-                    <div className="flex items-center justify-end space-x-3">
-                      <button
-                        onClick={() => onEdit(template.id)}
-                        className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => openModal(template.content)}
-                        className="px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
-                      >
-                        Preview
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                  template={template}
+                  onEdit={onEdit}
+                  openModal={openModal}
+                />
               ))}
             </div>
           </div>
