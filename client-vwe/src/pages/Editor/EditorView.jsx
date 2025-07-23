@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import TinyEditor from "../../components/TinyEditor";
 // import Aurora from "../../components/Aurora";
 const Aurora = React.lazy(() => import("../../components/Aurora"));
@@ -18,6 +18,8 @@ function EditorView({
   setHtmlOutput,
 }) {
   // console.log(initialContent)
+  const [editorLoad, setEditorLoad] = useState(false);
+
   const handleGoBack = () => {
     window.history.back();
   };
@@ -92,13 +94,14 @@ function EditorView({
                     initialContent={initialContent}
                     isEditMode={isEditMode}
                     setHtmlOutput={setHtmlOutput}
+                    setEditorLoad={setEditorLoad}
                   />
                 </div>
-                {
+                {editorLoad && (
                   <div>
                     <LiveView htmlOutput={htmlOutput} />
                   </div>
-                }
+                )}
               </div>
             </div>
           </div>

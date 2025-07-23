@@ -1,7 +1,13 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { useEffect } from "react";
 
-function TinyEditor({ editorRef, initialContent, isEditMode, setHtmlOutput }) {
+function TinyEditor({
+  editorRef,
+  initialContent,
+  isEditMode,
+  setHtmlOutput,
+  setEditorLoad,
+}) {
   useEffect(() => {
     if (editorRef.current && initialContent) {
       editorRef.current.setContent(initialContent);
@@ -13,12 +19,16 @@ function TinyEditor({ editorRef, initialContent, isEditMode, setHtmlOutput }) {
   // if (isEditMode && (initialContent === undefined || initialContent === null)) {
   //   return <div>Loading editor...</div>; // or spinner
   // }
+  console.log(editorRef.current?.getContent?.() || "");
 
   return (
     <>
       <Editor
         apiKey={import.meta.env.VITE_API_KEY}
-        onInit={(_evt, editor) => (editorRef.current = editor)}
+        onInit={(_evt, editor) => {
+          editorRef.current = editor;
+          setEditorLoad(true);
+        }}
         initialValue={isEditMode ? initialContent : "<p>Write here...</p>"}
         onEditorChange={(newContent) => setHtmlOutput(newContent)}
         // inline={true}
